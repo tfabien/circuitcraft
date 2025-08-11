@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableaux Electriques</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="schemas-container"></div>
+    <button class="add-tableau" onclick="showTableauModal()">
+        <span class="add-icon">+</span> Ajouter un tableau
+    </button>
+    <button onclick="saveSchemas()">Sauvegarder</button>
+    <button onclick="document.getElementById('loadFile').click()">Charger</button>
+    <button onclick="clearAll()">Tout effacer</button>
+    <input type="file" id="loadFile" style="display: none;" onchange="loadSchemas(event)">
+
+    <div id="tableauModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('tableauModal')">&times;</span>
+            <h2>Ajouter un tableau électrique</h2>
+            <form id="tableauForm">
+                <label for="tableauName">Nom du tableau:</label>
+                <input type="text" id="tableauName" name="tableauName" required>
+                <button type="button" onclick="addTableau()">Ajouter</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="moduleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('moduleModal')">&times;</span>
+            <h2 id="modalTitle">Ajouter un module</h2>
+            <form id="moduleForm">
+                <!-- Les champs de formulaire seront ajoutés dynamiquement par JavaScript -->
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
